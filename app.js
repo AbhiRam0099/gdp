@@ -11,6 +11,7 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 const app = express();
 
+const PORT = process.env.PORT || 5000;
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -46,6 +47,6 @@ app.get("/list",(req,res) =>
 
 
 
-app.listen(5000, function() {
+app.listen(PORT, function() {
   console.log("Server started on port 5000");
 });

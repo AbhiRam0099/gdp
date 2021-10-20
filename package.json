@@ -4,7 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "node app.js",
+=======
+>>>>>>> 89b86cc44d13dc58c95b383c62cd067258cb60bb
     "serve":"node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

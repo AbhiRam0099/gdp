@@ -17,13 +17,16 @@ const PORT = process.env.PORT || 5000;
 app.set('view engine', 'ejs');
 
 //connecting to a database in Atlas cloud 
-mongoose.connect('mongodb+srv://abhi:abhi@cluster0.auj5o.mongodb.net/moviesDB?retryWrites=true&w=majority')
-const moviesSchema = {
-    title : String,
-    genre : String
+mongoose.connect('mongodb+srv://abhi:abhi@cluster0.auj5o.mongodb.net/locationsDB?retryWrites=true&w=majority')
+const locationsSchema = {
+    name : String,
+    image : String,
+    location : String,
+    description : String,
+
 }
 //sample model creating a model 
-const Movie = mongoose.model('movie',moviesSchema) 
+const Location = mongoose.model('location',locationsSchema) 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));

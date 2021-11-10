@@ -66,7 +66,9 @@ app.get("/login", (req, res) => {
 
 app.get("/list", (req, res) => {
   Location.find({},function(err,locations){
-    res.send("success")
+    res.render('list.ejs',{
+      locationsList : locations
+    })
     console.log(locations)
   })
   

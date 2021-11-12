@@ -1,79 +1,24 @@
 <%- include("partials/header") -%>
     <div class="page-content page-container" id="page-content">
         <h1>Featured Location List</h1>
-      <div class="row">
+        <div class="row">
+          <% locationsList.forEach(location => { %>
         <div class="col mb-4">
-          <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-              <h5 class="card-title">Colden Pond</h5>
-              <img class="card-img-top" src="../images/coldenpond.jpg" alt="Card image cap">
-              <h6 class="card-text">Location:</h6>
-              <a href="https://www.google.com/maps/place/Colden+Pond/@40.3500378,-94.8851095,17z/data=!3m1!4b1!4m5!3m4!1s0x87eac542b5ee770d:0x2d3c77364e14ea69!8m2!3d40.3499213!4d-94.8830229">Visit coldenpond.com</a>
-              <h6 class="card-tittle">Description :</h6>
-              <p class="card-text">Colden Pond was not always known as Colden Pond. It was originally called Lamkin Lake after Northwest President Uel Lamkin.</p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <font-awesome-icon icon="edit" />
-              <font-awesome-icon icon="delete"/>
-            </div>
+          <div class="card h-100" style="max-width: 20rem;">
+              <div class="card-body">
+               <h5 class="card-title"> <%=location.name%></h5> 
+        <img class="card-img-top" src="<%=location.image %>"  alt="Card image cap">
+        <h6 class="card-text">Location:</h6>
+        <a href="<%=location.location %>"> <%=location.name %>.com</a>
+        <h6 class="card-text">Description:</h6>
+        <p class="card-text"> <%=location.description %></p>
+        
+        <font-awesome-icon icon="edit" />
+        <font-awesome-icon icon="delete"/>
+              </div>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-              <h5 class="card-title">Mozingo Lake</h5>
-              <img class="card-img-top" src="../images/MozingoLake.jpg" alt="Card image cap">
-              <h6 class="card-text">Location:</h6>
-              <a href="https://www.google.com/maps/place/Mozingo+Lake/@40.3776705,-94.8122091,13z/data=!3m1!4b1!4m5!3m4!1s0x87eadcd2343de3fd:0x763513fa8301de7c!8m2!3d40.3669601!4d-94.783399">Visit MozingoLake.com</a>
-              <h6 class="card-text">Description:</h6>
-              <p class="card-text">Located 5 miles east of Maryville, Missouri, Mozingo Lake Recreation Park is ready to become the next destination for all your outdoor recreation needs</p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <font-awesome-icon icon="edit" />
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-              <h5 class="card-title">Bearcat Lanes</h5>
-              <img class="card-img-top" src="../images/BearcatLane.jpg" alt="Card image cap">
-              <h6 class="card-text">Location:</h6>
-              <a href="https://www.google.com/maps/place/Bearcat+Lanes+%26+Lounge/@40.32835,-94.8756933,17z/data=!3m1!4b1!4m5!3m4!1s0x87eac59fe3805fd9:0x5ec7314650374572!8m2!3d40.32835!4d-94.8735046">Visit Bearcatlane.com</a>
-              <h6 class="card-text">Description:</h6>
-              <p class="card-text">The place to go bowling in Maryville, Missouri. Maryville, MO.</p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <font-awesome-icon icon="edit" />
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card h-100">
-            <!-- <img src="..." class="card-img-top" alt="..."> -->
-            <div class="card-body">
-              <h5 class="card-title">Board Game Cafe</h5>
-              <img class="card-img-top" src="../images/boardcafe.jpg" alt="Card image cap">
-              <h6 class="card-text">Location:</h6>
-              <a href="https://www.google.com/maps/place/Maryville+Board+Game+Cafe/@40.3486772,-94.8754191,17z/data=!3m1!4b1!4m5!3m4!1s0x87eac56aae413c2d:0x6cbb2d15b3092f88!8m2!3d40.3486772!4d-94.8732304">Visit BoardGameCafe.com</a>
-              <h6 class="card-text">Description:</h6>
-              <p class="card-text">The Maryville Board Game Cafe offers a menu of top of the line specialty drinks and coffees crafted by the most talented baristas, using only the freshest, highest quality beans in the business. </p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <p class="card-text"></p>
-              <font-awesome-icon icon="edit" />
-            </div>
-          </div>
+        <% }) %> 
         </div>
       </div>
     </div>

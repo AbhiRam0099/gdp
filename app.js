@@ -13,11 +13,22 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+//connecting to a database in Atlas cloud 
+//const connectionString = process.env.MONGO_CON
+const connectionString  = "mongodb+srv://abhi:abhi@cluster0.auj5o.mongodb.net/locationsDB?retryWrites=true&w=majority"
+mongoose.connect(connectionString,
+{useNewUrlParser: true, useUnifiedTopology: true});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", function () {
+  console.log("Connected successfully");
+});
 
 app.set('view engine', 'ejs');
 
 //connecting to a database in Atlas cloud 
-mongoose.connect('mongodb+srv://abhi:abhi@cluster0.auj5o.mongodb.net/locationsDB?retryWrites=true&w=majority')
+
 const locationsSchema = {
     name : String,
     image : String,
@@ -54,10 +65,15 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/list", (req, res) => {
-  res.render("list")
+  Location.find({},function(err,locations){
+    res.render('list.ejs',{
+      locationsList : locations
+    })
+    console.log(locations)
+  })
+  
 });
-
-
+ 
 
 
 app.listen(PORT, function () {

@@ -44,10 +44,14 @@ app.use(express.static("public"));
 
 var posts = [];
 
-app.get("/", function (req, res) {
+app.get("/",function(req,res){
 
-  res.render("home", { homeStartingContent: homeStartingContent, post: posts });
-
+  Location.find({},function(err,locations){
+    res.render('home.ejs',{
+      locationsList : locations
+    })
+    console.log(locations)
+  })
 });
 
 app.get("/about", function (req, res) {

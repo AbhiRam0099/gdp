@@ -1,5 +1,12 @@
 <%- include("partials/header") -%>
+
+
 <div class="home-image">
+  <link 
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="./styles.css"/>
   <div class="row container d-flex justify-content-center" >
     <div class="col-xl-6 col-md-12 ">
       <div class="card" >
@@ -7,16 +14,59 @@
           <%   let item = locationsList[Math.floor(Math.random() * locationsList.length)] %>
           <h1 style="text-align: center"><%=item.name%></h1>
           <img class="card-img-top" src="../images/coldenpond.jpg" alt="Card image cap">
-          <p class="card-text"><%=item.description  %></p>  </div>
+          <p class="card-text"><%=item.description  %></p> 
+         </div>
       </div>
-    </div>
-  </div>
+      <button class="like_btn">
+        <span id ="icon"><i class="far fa-thumbs-up"></i>
+          <span id="count">0</span>
+        </span>
+      </button>
+      </div>
+      </div>
+  
 </div>
 
   <div class="details">
 
     <a href="/list"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="details">click for more !</button>     </a>
+    
 
   </div>
   </div>
-  <%- include("partials/footer") -%>
+  
+  
+  
+
+
+  <script>
+    export default {
+      name: "Home",
+      mounted() {
+        this.getDeveloper();
+      },
+      data (){
+        return {
+          data: null
+        }
+      },
+      methods: {
+        async getDeveloper() {
+          // await this.$axios.get(`http://localhost:8080/developers/getall`).then((res) => {
+          await this.$axios.get(`https://featured-developers-threeb.herokuapp.com/developers/getall`).then((res) => {
+            console.log(res)  
+            if (res.status == 200) {
+              this.data = res
+              console.log("data=",this.data)
+              
+            }
+          });
+        },
+      },
+    };
+    
+    </script>
+    <script src="./script.js"></script>
+
+ 
+    <%- include("partials/footer") -%>
